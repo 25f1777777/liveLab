@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Adding a student</h1>
+    <form action="/student/create" method="POST" id="create-form">
+        <div class="form-group">
+            <label for="roll">Roll Number:</label>
+            <input type="text" name="roll" id="roll" required />
+        </div>
+        <div class="form-group">
+            <label for="f_name">First Name:</label>
+            <input type="text" name="f_name" id="f_name" required />
+        </div>
+        <div class="form-group">
+            <label for="l_name">Last Name:</label>
+            <input type="text" name="l_name" id="l_name" />
+        </div>
+        <div class="form-group">
+            <label>Select Courses: </label>
+            <div class="courses-group">
+                <input type="checkbox" name="courses" value="course_1" id="mad1" />
+                <label for="mad1">MAD I</label>
+                <input type="checkbox" name="courses" value="course_2" id="dbms" />
+                <label for="dbms">DBMS</label>
+                <input type="checkbox" name="courses" value="course_3" id="pdsa" />
+                <label for="pdsa">PDSA</label>
+                <input type="checkbox" name="courses" value="course_4" id="bdm" />
+                <label for="bdm">BDM</label>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

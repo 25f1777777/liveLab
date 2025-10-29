@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 style="text-align:center;">Update Student</h1>
+    <form action="/student/{{ student.student_id }}/update" method="POST" id="update-form" style="max-width:500px; margin:0 auto;">
+        <div class="form-group">
+            <label for="roll">Roll Number:</label>
+            <input type="text" name="roll" id="roll" value="{{ student.roll_number }}" disabled />
+        </div>
+        <div class="form-group">
+            <label for="f_name">First Name:</label>
+            <input type="text" name="f_name" id="f_name" value="{{ student.first_name }}" required />
+        </div>
+        <div class="form-group">
+            <label for="l_name">Last Name:</label>
+            <input type="text" name="l_name" id="l_name" value="{{ student.last_name }}" />
+        </div>
+        <div class="form-group">
+            <label>Select Courses: </label>
+            <div class="courses-group">
+                <input type="checkbox" name="courses" value="course_1" id="mad1"
+                       {% if 'course_1' in selected_courses %}checked{% endif %} />
+                <label for="mad1">MAD I</label>
+                <input type="checkbox" name="courses" value="course_2" id="dbms"
+                       {% if 'course_2' in selected_courses %}checked{% endif %} />
+                <label for="dbms">DBMS</label>
+                <input type="checkbox" name="courses" value="course_3" id="pdsa"
+                       {% if 'course_3' in selected_courses %}checked{% endif %} />
+                <label for="pdsa">PDSA</label>
+                <input type="checkbox" name="courses" value="course_4" id="bdm"
+                       {% if 'course_4' in selected_courses %}checked{% endif %} />
+                <label for="bdm">BDM</label>
+            </div>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

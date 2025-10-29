@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="details-card">
+        <h1>Student Details</h1>
+        <table class="mini-table">
+            <tr>
+                <th>Roll Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr>
+                <td>{{ student.roll_number }}</td>
+                <td>{{ student.first_name }}</td>
+                <td>{{ student.last_name }}</td>
+            </tr>
+        </table>
+
+        <h2>Enrollment List</h2>
+        <table>
+            <tr>
+                <th>S. No.</th>
+                <th>Course Code</th>
+                <th>Course Name</th>
+                <th>Course Description</th>
+            </tr>
+            {% if enrollment_details %}
+                {% for c in enrollment_details %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ c.course_code }}</td>
+                    <td>{{ c.course_name }}</td>
+                    <td>{{ c.course_description }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4">No enrollments</td>
+                </tr>
+            {% endif %}
+        </table>
+
+        <a class="add-btn" style="margin-top:2em" href="/">Go Back</a>
+    </div>
+</body>
+</html>
